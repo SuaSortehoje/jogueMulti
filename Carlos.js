@@ -123,7 +123,7 @@
                 document.getElementById('saldo').textContent = 'Saldo: ' + saldo;
             }
         });
-        function recarregarSaldo() {
+        function atualizarSaldo() {
     saldo += 50; // Adiciona 500 ao saldo atual
     document.getElementById('saldo').textContent = 'Saldo: ' + saldo; // Atualiza o saldo exibido na página
 
