@@ -1,7 +1,7 @@
 
     <script>
-      var milhares = [];
-        var saldo = 00;
+        var milhares = [];
+        var saldo = 100;
 
         function adicionarMilhar() {
             var milharesInputs = document.querySelectorAll('[id^="milharInput"]');
@@ -131,5 +131,5 @@
     localStorage.setItem('saldo', saldo);
 }
 
+    </script>
 
-</script>
