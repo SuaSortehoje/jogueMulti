@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo de Milhares</title>
+    <script src="Carlos.js"></script>
+        <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: black;
+            color: white;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #333;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input[type="tel"] {
+            width: 17%;
+            padding: 10px;
+            margin-bottom: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            text-align:center;
+        }
+        input[type="tel"], select:focus {
+            background-color:black;
+            color:white;
+        }
+        input[type="text"] {
+            width: 70%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            background-color:black;
+            color:white;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #00d0ff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #00aacc;
+        }
+        #modal {
+            display: none;
+            background-color: rgba(0, 0, 0, 0.5);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+        }
+        #modal-content {
+            background-color: black;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .close {
+            position: absolute;
+            top: 110px;
+            right: 10px;
+            background-color: transparent;
+            border: none;
+            color: white;
+            cursor: pointer;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: #fff;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        #horarioInput{
+            width: 35%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            text-align:center;
+        }
+        #premioInput{
+            width: 35%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            text-align:center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+     <p id="saldo">Saldo: 0.00</p>
+        <h2>Jogo de Milhar e Centena</h2>
+        <input style="width:30%" maxlength="2" type="tel" id="valorInput" placeholder="Digite o valor (em milhares)">
+        <input type="text" id="nomeInput" placeholder="Digite seu nome">
+        <select id="horarioInput">
+            <option value="02:00-LN">02:00h-LN</option>  
+            <option value="08:00h-LN">08:00h-LN</option>  
+            <option value="10:00h-LN">10:00-LN</option>
+            <option value="10:00h-BA">10:00h-BA</option>
+            <option value="12:00h-LN">12:00h-LN</option>
+            <option value="12:00h-BA">12:00h-BA</option>
+            <option value="15:00h-LN">15:00h-LN</option>
+            <option value="15:00h-BA">15:00h-BA</option>
+            <option value="17:00h-LN">17:00h-LN</option>
+            <option value="19:00h-BA">19:00h-BA</option>
+            <option value="20:00h-LN">20:00h-LN</option>
+            <option value="21:00h-BA">21:00h-BA</option>
+            <option value="23:00h-LN">23:00h-LN</option>     
+        </select>
+        <select id="premioInput">
+            <option value="premio">1º Prêmio</option>
+            <option value="1a5premio">1º ao 5º Prêmio</option>
+        </select><br>
+        <input type="tel" id="milharInput1" placeholder="Digite a milhar (4 números)" maxlength="4">
+        <input type="tel" id="milharInput2" placeholder="Digite a milhar (4 números)" maxlength="4">
+        <input type="tel" id="milharInput3" placeholder="Digite a milhar (4 números)" maxlength="4">
+        <input type="tel" id="milharInput4" placeholder="Digite a milhar (4 números)" maxlength="4">
+        <input type="tel" id="milharInput5" placeholder="Digite a milhar (4 números)" maxlength="4">
+        <input type="tel" id="milharInput6" placeholder="Digite a milhar (4 números)" maxlength="4">
+        <input type="tel" id="milharInput7" placeholder="Digite a milhar (4 números)" maxlength="4">
+        <input type="tel" id="milharInput8" placeholder="Digite a milhar (4 números)" maxlength="4">
+        <input type="tel" id="milharInput9" placeholder="Digite a milhar (4 números)" maxlength="4">
+        <input type="tel" id="milharInput10" placeholder="Digite a milhar (4 números)" maxlength="4">
+        <input type="tel" id="milharInput11" placeholder="Digite a milhar (4 números)" maxlength="4">
+        <input type="tel" id="milharInput12" placeholder="Digite a milhar (4 números)" maxlength="4">
+        <input type="tel" id="milharInput13" placeholder="Digite a milhar (4 números)" maxlength="4">
+        <input type="tel" id="milharInput14" placeholder="Digite a milhar (4 números)" maxlength="4">
+        <input type="tel" id="milharInput15" placeholder="Digite a milhar (4 números)" maxlength="4">
+        <input type="tel" id="milharInput16" placeholder="Digite a milhar (4 números)" maxlength="4">
+        <input type="tel" id="milharInput17" placeholder="Digite a milhar (4 números)" maxlength="4">
+        <input type="tel" id="milharInput18" placeholder="Digite a milhar (4 números)" maxlength="4">
+        <input type="tel" id="milharInput19" placeholder="Digite a milhar (4 números)" maxlength="4">
+        <input type="tel" id="milharInput20" placeholder="Digite a milhar (4 números)" maxlength="4">
+        <br>
+        <button onclick="adicionarMilhar()">Adicionar Milhar</button>
+        <button onclick="calcular()">Calcular</button>
+        
+
+    </div>
+
+    <div id="modal">
+        <div id="modal-content">
+            <h2>Detalhes do Jogo</h2>
+            <button class="close" onclick="fecharModal()">&times;</button>
+            <input maxlength="14" type="tel" style="width:50%; margin-left:40px; height:25px;" id="numeroInput" placeholder="Digite o número de telefone" required><br>
+            <p>Nome: <span id="nomePix"></span></p>
+            <p>Horário: <span id="horarioPix"></span></p>
+            <p>Milhares: <span id="milharesPix"></span></p>
+            <p>Total a Pagar: R$ <span id="totalPagar"></span></p>
+            <p>Total a Receber: R$ <span id="totalReceber"></span></p>
+            <p>Código PIX: <span id="codigoPix"></span></p>
+            <button onclick="copyPix()">Copiar PIX</button>
+            <button onclick="enviarWhatsApp()">Enviar por WhatsApp</button>
+        </div>
+    </div>
+
+   <script src="Carlos.js"></script>
+</body>
+</html>
