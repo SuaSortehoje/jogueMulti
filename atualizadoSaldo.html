@@ -13,10 +13,22 @@
     <div class="container">
     CARLOS <br>
         <p id="saldo">Saldo: 0.00</p>
-  <input type="tel" id="saldoInput" placeholder="Atualizar Saldo">
-<button onclick="atualizarSaldo()">Atualizar</button>
+  <input type="number" id="saldoInput" placeholder="Insira o valor do saldo">
+<button onclick="atualizarSaldo()">Atualizar Saldo</button>
 
-    <script src="https://raw.githubusercontent.com/SuaSortehoje/jogueMulti/main/Carlos.js"></script>
+    <script>function atualizarSaldo() {
+    var novoSaldo = parseInt(document.getElementById('saldoInput').value);
+    if (!isNaN(novoSaldo) && novoSaldo >= 0) {
+        saldo = novoSaldo;
+        document.getElementById('saldo').textContent = 'Saldo: ' + saldo;
+        localStorage.setItem('saldo', saldo);
+        alert('Saldo atualizado com sucesso!');
+    } else {
+        alert('Por favor, insira um valor válido para o saldo.');
+    }
+}
+</script>
+<script type="text/javascript" src="newtech.js">
         </body>
         
         </html>
